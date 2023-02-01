@@ -13,8 +13,6 @@ const gallery = document.querySelector('.gallery')
 
 form.addEventListener("submit", handleSubmit);
 
-
-
 function handleSubmit(e){
   e.preventDefault();
   cleanGallary();
