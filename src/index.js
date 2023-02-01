@@ -7,28 +7,31 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const DEBOUNCE_DELAY = 300;
 
-const form = document.querySelector(".search-form");
+const form = document.getElementById("search-form");
 const gallery = document.querySelector('.gallery')
 
+
 form.addEventListener("submit", handleSubmit);
+
+
 
 function handleSubmit(e){
   e.preventDefault();
   cleanGallary();
 
-  
-  const inputValue = e.currentTarget.elements.searchQuery.value.trim();
+  let inputValue = form.elements.searchQuery.value.trim();
+ 
 if(inputValue === ''){
   return
 }
   fetchImages(inputValue).then(pages =>{
-   
-     if (pages.length === 20) {
-      Notiflix.Notify.success(`Hooray! We found images.`);
-    }else if (pages.length < 40) {
-      Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
-    }
-    renderCountry(pages)
+    renderCountry(pages.data.hits)
+    //  if (pages.hits === 20) {
+    //   Notiflix.Notify.success(`Hooray! We found images.`);
+    // }else if (pages.hits < 40) {
+    //   Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+    // }
+    
   })
   .catch(error => {
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
