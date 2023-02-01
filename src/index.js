@@ -23,7 +23,7 @@ if(inputValue === ''){
   return
 }
   fetchImages(inputValue).then(pages =>{
-    renderCountry(pages.data.hits)
+    renderCountry(pages.hits)
     //  if (pages.hits === 20) {
     //   Notiflix.Notify.success(`Hooray! We found images.`);
     // }else if (pages.hits < 40) {
