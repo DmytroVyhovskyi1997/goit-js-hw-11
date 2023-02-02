@@ -3,8 +3,8 @@ import { fetchImages } from './fetchImages';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
 
+let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
 
 const form = document.getElementById("search-form");
 const gallery = document.querySelector('.gallery');
