@@ -25,11 +25,12 @@ body {
     margin-bottom: auto;
 }
 header{
-  max-width:  1800px;
+  width: 100%;
   height: 70px;
   background-color: blue;
 display: flex;
 justify-content: center;
+
 }
 input{
   width: 250px;
@@ -57,5 +58,26 @@ button{
   border-radius: 4px;
 }
 
+.gallery{
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 25px;
+  display: flex;
+}
+/* .photo{
+  width: 200px;
+  
+} */
 
-
+.info{
+  color: #000;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 10px;
+  display: flex;
+}
+.info-item{
+  text-align: center;
+    flex-direction: column;
+    display: flex;
+}

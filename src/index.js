@@ -12,7 +12,7 @@ const button = document.querySelector('.Load-more');
 
 
 button.style.display = 'none';
-form.addEventListener("submit", handleSubmit);
+form.addEventListener('submit', handleSubmit);
 button.addEventListener('click', clickBtn);
 let page = 1;
 function handleSubmit(e){
@@ -54,27 +54,27 @@ function clickBtn(){
 
 function renderCountry(users) {
   const markup = users
-    .map((user) => {
+    .map((image) => {
       return `<div class="photo-card">
-      <a href="${user.largeImageURL}"><img class="photo" src="${user.webformatURL}" alt="${user.tags}" loading="lazy"/></a>
+      <a href="${image.largeImageURL}"><img class="photo" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" width='200'/></a>
       <div class="info">
-        <p class="info-item">
-          <b>${user.likes}</b>
-        </p>
-        <p class="info-item">
-          <b>${user.views}</b>
-        </p>
-        <p class="info-item">
-          <b>${user.comments}</b>
-        </p>
-        <p class="info-item">
-          <b>${user.downloads}</b>
-        </p>
-      </div>
-    </div>`;
+      <p class="info-item">
+<b>Likes</b> <span class="info-item-api"> ${image.likes} </span>
+</p>
+       <p class="info-item">
+           <b>Views</b> <span class="info-item-api">${image.views}</span>  
+       </p>
+       <p class="info-item">
+           <b>Comments</b> <span class="info-item-api">${image.comments}</span>  
+       </p>
+       <p class="info-item">
+           <b>Downloads</b> <span class="info-item-api">${image.downloads}</span> 
+       </p>
+    </div>
+    `;
     })
     .join("");
-    gallery.innerHTML = markup;
+    return gallery.insertAdjacentHTML('beforeend', markup)
 }
 
 
