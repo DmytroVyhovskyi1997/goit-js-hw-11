@@ -18,3 +18,44 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.form{
+  display: flex;
+  margin-top: auto;
+    margin-bottom: auto;
+}
+header{
+  max-width:  1800px;
+  height: 70px;
+  background-color: blue;
+display: flex;
+justify-content: center;
+}
+input{
+  width: 250px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+button{
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+
+

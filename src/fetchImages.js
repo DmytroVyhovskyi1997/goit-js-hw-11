@@ -4,21 +4,6 @@ export const fetchImages = async (name, page = 1) => {
   const pages = await response.json();
   return pages;
 };
-// export const fetchImages = async (name, page = 1) => {
-//   return await(
-//     `https://pixabay.com/api/?key=${API_KEY}&q=${name}&orientation=horizontal&safesearch=true&image_type=photo&per_page=40&page=${page}`
-//   )
-//     .then(async response => {
-//       if (!response.ok) {
-      
-//         throw new Error(response.statusText);
-//       }
-//       return await response.json();
-//     })
-// };
-// async function fetchImages (name, page =1){
-//   let res = axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${name}&orientation=horizontal&safesearch=true&image_type=photo&per_page=40&page=${page}`)
-//   return await res;
-// }
+
 
 
