@@ -10,6 +10,11 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  background-color: gray;
+  margin: 0;
+}
+a{
+  text-decoration: none;
 }
 
 #search-box {
@@ -43,8 +48,16 @@ input{
   letter-spacing: 0.06em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-}
+  padding-left: 10px;
+  outline: none;
 
+}
+input:hover,input:focus{
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition:500ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
 button{
   width: 100px;
   height: 30px;
@@ -56,23 +69,29 @@ button{
   letter-spacing: 0.06em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  outline: none;
+  cursor: pointer;
 }
-/* .photo-card{
-  flex-wrap: wrap;
-    display: flex;
-} */
+button:hover,button:focus{
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition:500ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+
+}
 .gallery{
   flex-wrap: wrap;
     justify-content: center;
     margin: 20px 25px;
     display: flex;
     gap:10px;
+    outline: none;
 }
 .photo{
   width: 350px;
     height: 250px;
     display: block;
-  
+    outline: none;
 }
 
 .info{
@@ -85,12 +104,50 @@ button{
   margin-bottom: 20px;
   font-size: 14px;
   display: flex;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  outline: none;
+  
 }
+.info:hover,.info:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition:500ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+
 .info-item{
   flex-flow: column wrap;
     align-items: center;
     padding: 0 12px;
     display: flex;
+    color: black;
 
 }
+.info-item-api{
+  color: black;
+  font-weight: bold;
+}
+
+.Load-more {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background-color: #4056b4;
+  border: none;
+  border-radius: 2px;
+  margin: 0 auto 20px;
+  font-size: large;
+  width: 150px;
+  height: 50px;
+}
+
+.Load-more:hover,.Load-more:focus{
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition:500ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  color: black;
+}
+
