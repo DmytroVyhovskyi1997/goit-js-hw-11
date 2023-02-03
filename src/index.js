@@ -56,7 +56,7 @@ function renderCountry(users) {
   const markup = users
     .map((image) => {
       return `<div class="photo-card">
-      <a href="${image.largeImageURL}"><img class="photo" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" width='200'/></a>
+      <a href="${image.largeImageURL}"><img class="photo" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" width='200'/>
       <div class="info">
       <p class="info-item">
 <b>Likes</b> <span class="info-item-api"> ${image.likes} </span>
@@ -70,6 +70,9 @@ function renderCountry(users) {
        <p class="info-item">
            <b>Downloads</b> <span class="info-item-api">${image.downloads}</span> 
        </p>
+    </div>
+      </a>
+    
     </div>
     `;
     })
