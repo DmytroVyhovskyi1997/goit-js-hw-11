@@ -14,52 +14,64 @@ const button = document.querySelector('.Load-more');
 button.style.display = 'none';
 form.addEventListener('submit', handleSubmit);
 button.addEventListener('click', clickBtn);
+
 let page = 1;
-function handleSubmit(e){
+
+async function handleSubmit(e){
   e.preventDefault();
-  cleanGallary();
-  
   let inputValue = form.elements.searchQuery.value.trim();
- 
-if(inputValue === ''){
-  return
-}
-  fetchImages(inputValue, page).then(pages =>{
-let count = pages.totalHits
-    if(inputValue < count){
-       Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
-       button.style.display = 'none';
-    };
-    renderCountry(pages.hits)
+  page = 1;
+  cleanGallary();
+
+  if(inputValue === ''){
+    return
+  };
+  if (!inputValue) {
+    Notiflix.Notify.failure('Please, fill search field');
+    cleanGallary();
+  
+    button.style.display = 'block';
+    return;
+  }
+
+try{
+
+  const pages = await fetchImages(inputValue, page)
+
+  let totalPage = pages.data.totalHits;
+      
+    renderCountry(pages.data.hits)
     gallerySimpleLightbox.refresh();
     button.style.display = 'block';
-    Notiflix.Notify.success(`Hooray! We found ${inputValue} images.`);
-  })
-  .catch(error => {
-    Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
-  });
- 
-};
+    Notiflix.Notify.success(`Hooray! We found ${totalPage} images.`)
+} catch (error) {
+  Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+}};
 
 
-function clickBtn(){
-  page ++
-  button.style.display = 'none';
+
+async function clickBtn(){
+  page ++;
+  
   let inputValue = form.elements.searchQuery.value.trim();
-    fetchImages(inputValue, page).then(pages =>{
-      let count = pages.totalHits
-    if(inputValue < count){
-       Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
-       button.style.display = 'none';
+
+try{
+
+  const pages = await fetchImages(inputValue, page)
+
+  const count = pages.data.totalHits ;
+    if (page > count) {
+      Notiflix.Notify.info('Were sorry, but you ve reached the end of search results.');
+      button.style.display = 'none';
+      form.reset();
     }
-      renderCountry(pages.hits)
-      gallerySimpleLightbox.refresh();
-      button.style.display = 'block';
-    })
-    .catch(error => {
-      Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
-    });
-}
+    renderCountry(pages.data.hits)
+    gallerySimpleLightbox.refresh();
+    button.style.display = 'block';
+} catch (error) {
+  Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+}};
+
 
 function renderCountry(users) {
   const markup = users
