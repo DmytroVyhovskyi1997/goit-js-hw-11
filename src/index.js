@@ -59,8 +59,8 @@ try{
 
   const pages = await fetchImages(inputValue, page)
 
-  const count = pages.data.totalHits ;
-    if (page > count) {
+  const pageAll = pages.data.totalHits ;
+    if (page > pageAll) {
       Notiflix.Notify.info('Were sorry, but you ve reached the end of search results.');
       button.style.display = 'none';
       form.reset();
